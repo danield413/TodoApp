@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
+import Screen from './components/Screen';
 import './App.css';
+import { CssBaseline } from '@material-ui/core';
+import { ContextProvider } from '../src/globalState/ContextProvider';
+import { SnackbarProvider } from 'notistack';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ContextProvider>
+            <SnackbarProvider maxSnack={3}>
+                <CssBaseline />
+                <Screen />
+            </SnackbarProvider>
+        </ContextProvider>
+    );
 }
 
 export default App;
